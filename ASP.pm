@@ -4,7 +4,7 @@
 
 package Apache::ASP;
 
-$VERSION = 2.61;
+$VERSION = 2.62;
 
 #require DynaLoader;
 #@ISA = qw(DynaLoader);
@@ -6514,6 +6514,26 @@ means first production ready release, this would be the
 equivalent of a 1.0 release for other kinds of software.
 
  + = improvement   - = bug fix    (d) = documentations
+
+=item $VERSION = 2.62; $DATE="2011/08/16"
+
+ - Fixed 'application/x-www-form-urlencoded' for AJAX POSTs post
+   Firefox 3.x
+
+ + First sourceforge.net hosted version
+
+ + Incremented version number to actually match SVN branch tag
+
+ + Switched to Big-endian date format in the documentation.
+   Less chance of misunderstandings
+
+=item $VERSION = 2.61; $DATE="05/24/2008"
+
+ - updated for more recent mod_perl 2 environment to trigger correct loading of modules
+
+ + loads modules in a backwards compatible way for older versions of mod_perl 1.99_07 to 1.99_09
+
+ + license changes from GPL to Perl Artistic License
 
 =item $VERSION = 2.59; $DATE="05/23/2005"
 

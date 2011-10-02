@@ -112,7 +112,9 @@ sub new {
 	    if(my $len = $self->{TotalBytes}) {
 		$self->{content} = $self->BinaryRead($len) || '';
 		tie(*STDIN, 'Apache::ASP::Request', $self);
-		if($headers_in->get('Content-Type') eq 'application/x-www-form-urlencoded') {
+		#AJAX POSTs are ``application/x-www-form-urlencoded; charset=UTF-8'' in Firefox3+
+		#by Richard Walsh Nov 25, 2008 (found in nabble)
+		if($headers_in->get('Content-Type') =~ m|^application/x-www-form-urlencoded|) {
 		    $form = &ParseParams($self, \$self->{content});
 		} else {
 		    $form = {};
